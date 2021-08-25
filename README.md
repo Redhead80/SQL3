@@ -36,17 +36,18 @@ ALTER TABLE Исполнители ADD CONSTRAINT id_genre FOREIGN KEY (id_genre
 ALTER TABLE Исполнители DROP COLUMN id_genre;
 
 CREATE TABLE IF NOT EXISTS Жанры_Исполнители (
-	id_genre INTEGER REFERENCES Жанры(id_genre) NOT null,
-	id_artist INTEGER REFERENCES Исполнители(id_artist) NOT null
+	id_genre INTEGER REFERENCES Жанры(id_genre) NOT NULL,
+	id_artist INTEGER REFERENCES Исполнители(id_artist) NOT NULL
 );	
 CREATE TABLE IF NOT EXISTS Альбомы_Исполнители (
-	id_album INTEGER REFERENCES Альбомы(id_album) NOT null,
-	id_artist INTEGER REFERENCES Исполнители(id_artist) NOT null
+	id_album INTEGER REFERENCES Альбомы(id_album) NOT NULL,
+	id_artist INTEGER REFERENCES Исполнители(id_artist) NOT NULL
 );	
 CREATE TABLE IF NOT EXISTS Сборники (
 	id_collection SERIAL PRIMARY key,
 	Название_сборника VARCHAR(100)  NOT NULL, 
 	Год_выпуска INTEGER NOT NULL,
-	id_track INTEGER REFERENCES Треки(id_track) NOT NULL
+	id_track INTEGER REFERENCES Треки(id_track) NOT NULL,
+	id_album INTEGER REFERENCES Альбомы(id_album) NOT NULL
 );
 ```
