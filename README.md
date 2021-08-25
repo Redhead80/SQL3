@@ -13,13 +13,13 @@ CREATE TABLE IF NOT EXISTS Исполнители (
 CREATE TABLE IF NOT EXISTS Альбомы (
 	id_album SERIAL PRIMARY key,
 	Название_альбома VARCHAR(100)  NOT NULL, 
-	Год_выпуска VARCHAR(4) NOT NULL,
+	Год_выпуска INTEGER NOT NULL,
 	id_artist INTEGER REFERENCES Исполнители(id_artist) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Треки (
 	id_track SERIAL PRIMARY key,
 	Название_трека VARCHAR(100)  NOT NULL,
-	Длительность VARCHAR(10) NOT NULL,
+	Длительность INTEGER NOT NULL,
 	id_album INTEGER REFERENCES Альбомы(id_album) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Жанры (
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Альбомы_Исполнители (
 CREATE TABLE IF NOT EXISTS Сборники (
 	id_collection SERIAL PRIMARY key,
 	Название_сборника VARCHAR(100)  NOT NULL, 
-	Год_выпуска VARCHAR(4) NOT NULL,
+	Год_выпуска INTEGER NOT NULL,
 	id_track INTEGER REFERENCES Треки(id_track) NOT NULL
 );
 ```
